@@ -11,5 +11,6 @@ public class LinkList {
 }
 
 class LinkListTest {
+    LinkList firstLink;
 
 }
