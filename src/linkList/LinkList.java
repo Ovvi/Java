@@ -34,8 +34,6 @@ public class LinkList {
         linkList.remove();
         linkList.display();
         */
-
-
     }
 }
 
