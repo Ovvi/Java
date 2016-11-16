@@ -22,10 +22,10 @@ public class HashFunction {
                 "235", "809", "900", "723", "678", "1", "16", "999", "890",
                 "320", "998", "978", "754", "990", "640", "984", "320", "321",
                 "400", "415", "379", "50", "660", "624" };
-        //theFunc.hashFunc1(elementsToAdd,theFunc.theArray);
-        theFunc.hashFunc2(elementsToAdd2,theFunc.theArray);
+        //theFunc.hashFunctionOne(elementsToAdd,theFunc.theArray);
+        theFunc.hashFunctionTwo(elementsToAdd2,theFunc.theArray);
         theFunc.display();
-        theFunc.findKey("640");
+        System.out.println(theFunc.findKey("640"));
 
     }
 
@@ -51,7 +51,7 @@ public class HashFunction {
     }
 
 
-    public void hashFunc1(String[] stringForArray, String[] theArray) {
+    public void hashFunctionOne(String[] stringForArray, String[] theArray) {
 
         for (int i = 0; i < stringForArray.length; i++) {
             String newElement = stringForArray[i];
@@ -59,7 +59,7 @@ public class HashFunction {
         }
     }
 
-    public void hashFunc2(String[] stringForArray, String[] theArray) {
+    public void hashFunctionTwo(String[] stringForArray, String[] theArray) {
 
         for (int i = 0; i < stringForArray.length; i++) {
             String newElement = stringForArray[i];
@@ -76,16 +76,19 @@ public class HashFunction {
     public String findKey(String key) {
 
         int arrayIndexHash = Integer.parseInt(key) % 29;
+        int counter = 0;
+        String notFound = "The key was not found";
 
-        while (theArray[arrayIndexHash] != "-1"){
+        while (theArray[arrayIndexHash] != "-1" && counter < theArray.length){
             if (theArray[arrayIndexHash] == key){
                 System.out.println(key+" was found at index "+arrayIndexHash);
                 return theArray[arrayIndexHash];
             }
             ++arrayIndexHash;
             arrayIndexHash %= arraySize;
+            counter++;
         }
-        return null;
+        return notFound;
     }
 
 
